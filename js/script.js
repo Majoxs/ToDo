@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable indent */
 /* eslint-disable strict */
 'use strict';
@@ -64,14 +65,14 @@ class Todo {
 
     deleteItem() {
         console.log('Вызвана функция Удаления');
-        this.todoData.forEach(item => {
-            console.log(item.key);
-            console.log(item);
-        });
+        // По ключу найти элемент и удалить его из new Map
+        this.render();
     }
 
     completedItem() {
         console.log('Вызвана функция Добавления');
+        // Перебрать все елементы todoData через forEach и найти элемент которому 
+        // соответствует ключ на который мы кликнули. И поменять значение completed.
         console.log(this.todoData);
         this.todoData.forEach(item => {
             console.log(item);
@@ -106,3 +107,4 @@ class Todo {
 const todo = new Todo('.todo-control', '.header-input', '.todo-list', '.todo-completed');
 
 todo.init();
+
