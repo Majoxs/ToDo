@@ -64,20 +64,19 @@ class Todo {
     }
 
     deleteItem() {
-        console.log('Вызвана функция Удаления');
-        // По ключу найти элемент и удалить его из new Map
+        const todoKey = event.target.parentElement.parentElement.key;
+        this.todoData.delete(todoKey);
         this.render();
     }
 
     completedItem() {
-        console.log('Вызвана функция Добавления');
-        // Перебрать все елементы todoData через forEach и найти элемент которому 
-        // соответствует ключ на который мы кликнули. И поменять значение completed.
-        console.log(this.todoData);
+        const todoKey = event.target.parentElement.parentElement.key;
         this.todoData.forEach(item => {
-            console.log(item);
+            if (item.key === todoKey) {
+                item.completed = !item.completed;
+            }
         });
-
+        this.render();
     }
 
     handler() {
